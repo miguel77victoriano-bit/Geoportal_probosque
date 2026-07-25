@@ -5,7 +5,19 @@ var map = L.map("map").setView([23.322,-102.334], 5);
 //Enlazar mapas base
 var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
+var satelite = L.tileLayer(
+'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+{
+attribution:'Tiles © Esri'
+}
+).addTo(map);
 
+var topo = L.tileLayer(
+'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+{
+attribution:'© OpenTopoMap'
+}
+).addTo(map);
 
 //Enlazar wms
 
@@ -33,10 +45,11 @@ var Preventivos_Quemas = L.tileLayer.wms("https://gathered-thousand-dated-constr
 
 
     //Controlador de capas
-var baseMaps = {"OpenStreetMap": osm,};
-//var wms1 = {"Preventivos_Brechas_Lineas": Preventivos_Brechas_Lineas};
-
-//var wms2 = {"Preventivos_Quemas": Preventivos_Quemas};
+var baseMaps = {
+ "Satélite": satelite,
+ "Calles": osm,
+ "Topográfico": topo
+};
 
 var overlayMaps = {
     "Preventivos_Brechas_Lineas": Preventivos_Brechas_Lineas,
