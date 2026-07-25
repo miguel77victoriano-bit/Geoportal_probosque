@@ -31,7 +31,7 @@ attribution:'© OpenTopoMap'
     //format : "image/png",
     //transparent : true } ).addTo(map); 
 
-    Prueba URL temporal
+   // Prueba URL temporal
 var Preventivos_Brechas_Lineas = L.tileLayer.wms("https://gathered-thousand-dated-constraint.trycloudflare.com/geoserver/Basededatos_regionII/wms?", {
   Layers: "Preventivos (Brechas_Lineas)",
     format : "image/png",
