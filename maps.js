@@ -63,6 +63,8 @@ var overlayMaps = {
 
     L.control.layers(baseMaps, overlayMaps).addTo(map);
 
+//Dibujar y descargar
+
 var drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
 
@@ -92,14 +94,6 @@ var drawControl = new L.Control.Draw({
 
 map.addControl(drawControl);
 
-map.on(L.Draw.Event.CREATED, function (e) {
-
-    var layer = e.layer;
-
-    drawnItems.addLayer(layer);
-
-});
-
 map.on(L.Draw.Event.CREATED, function(e){
 
     var layer = e.layer;
@@ -110,15 +104,31 @@ map.on(L.Draw.Event.CREATED, function(e){
 
 });
 
-map.on(L.Draw.Event.CREATED, function(e){
+function descargarDibujos(){
 
-    var layer = e.layer;
+    var datos = drawnItems.toGeoJSON();
 
-    drawnItems.addLayer(layer);
+    var archivo = new Blob(
+        [JSON.stringify(datos)],
+        {type: "application/json"}
+    );
 
-    console.log(layer.toGeoJSON());
+    var url = URL.createObjectURL(archivo);
 
-});
+    var enlace = document.createElement("a");
+
+    enlace.href = url;
+    enlace.download = "dibujos.geojson";
+
+    document.body.appendChild(enlace);
+
+    enlace.click();
+
+    document.body.removeChild(enlace);
+
+}
+
+//Coordenadas
 
 map.on('click', function(e){
 
