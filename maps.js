@@ -94,6 +94,7 @@ var drawControl = new L.Control.Draw({
 
 map.addControl(drawControl);
 
+
 map.on(L.Draw.Event.CREATED, function(e){
 
     var layer = e.layer;
@@ -125,6 +126,9 @@ function descargarDibujos(){
     enlace.click();
 
     document.body.removeChild(enlace);
+
+}
+
 
 }
 
