@@ -23,17 +23,17 @@ attribution:'© OpenTopoMap'
 
 //var Preventivos_Brechas_Lineas = L.tileLayer.wms("http://192.168.1.66:8080/geoserver/Basededatos_regionII/wms?", {
   //  Layers: "Preventivos (Brechas_Lineas)",
-  //  format : "image/png",
-  //  transparent : true } ).addTo(map); 
+    //format : "image/png",
+    //transparent : true } ).addTo(map); 
 
 //var Preventivos_Quemas = L.tileLayer.wms("http://192.168.1.66:8080/geoserver/Basededatos_regionII/wms?", {
   //  Layers: "Preventivos (Quemas)",
-  //  format : "image/png",
-  //  transparent : true } ).addTo(map); 
+    //format : "image/png",
+    //transparent : true } ).addTo(map); 
 
-    //Prueba URL temporal
+    Prueba URL temporal
 var Preventivos_Brechas_Lineas = L.tileLayer.wms("https://gathered-thousand-dated-constraint.trycloudflare.com/geoserver/Basededatos_regionII/wms?", {
-    Layers: "Preventivos (Brechas_Lineas)",
+  Layers: "Preventivos (Brechas_Lineas)",
     format : "image/png",
     transparent : true } ).addTo(map); 
 
@@ -63,7 +63,8 @@ var overlayMaps = {
 
     L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-//Dibujar y descargar
+
+    //Dibujar y descargar
 
 var drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
@@ -130,7 +131,6 @@ function descargarDibujos(){
 }
 
 
-}
 
 //Coordenadas
 
@@ -169,6 +169,7 @@ map.on('mousemove', function(e){
         "Lat: " + e.latlng.lat.toFixed(6) +
         "<br>Lon: " + e.latlng.lng.toFixed(6);
 });
+
 
 
 
